@@ -1,0 +1,3 @@
+import type {Metadata} from "next";import {books} from "@/data/books";import {BookCard} from "@/components/books/BookCard";import {Container} from "@/components/layout/Container";import {SectionHeading} from "@/components/ui/SectionHeading";
+export const metadata:Metadata={title:"Cărți",description:"Cele două volume Ciocârlia despre ia tradițională, simboluri și practica cusutului."};
+export default function Books(){return <Container className="py-20"><SectionHeading eyebrow="Colecția Ciocârlia" title="Cărți pentru cei care vor să înțeleagă, nu doar să privească." intro="Două volume complementare, documentate cu atenție și scrise limpede."/><div className="mt-12 grid gap-8">{books.map(b=><BookCard key={b.id} book={b}/>)}</div></Container>}

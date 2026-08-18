@@ -1,0 +1,2 @@
+import {articles} from "@/data/articles";import {ArticleCard} from "@/components/blog/ArticleCard";import {Container} from "@/components/layout/Container";import {SectionHeading} from "@/components/ui/SectionHeading";
+export function BlogPreview(){return <section className="py-24"><Container><SectionHeading eyebrow="Jurnal" title="De citit încet, de păstrat aproape."/><div className="mt-12 grid gap-8 md:grid-cols-3">{articles.slice(0,3).map(a=><ArticleCard key={a.slug} article={a}/>)}</div></Container></section>}

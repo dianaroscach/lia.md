@@ -1,0 +1,5 @@
+import Link from "next/link";
+import type { ButtonHTMLAttributes,ReactNode } from "react";
+import { cx } from "@/lib/utils";
+const styles="inline-flex min-h-11 items-center justify-center border px-7 py-3 text-xs font-medium tracking-[.04em] shadow-[0_3px_10px_rgba(55,44,32,.08)] transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--wine)]";
+export function Button({href,children,variant="primary",className="",...props}:{href?:string;children:ReactNode;variant?:"primary"|"secondary"|"text";className?:string}&ButtonHTMLAttributes<HTMLButtonElement>){const classes=cx(styles,variant==="primary"&&"border-[var(--olive)] bg-[var(--olive)] text-white hover:bg-[#363911]",variant==="secondary"&&"border-[var(--line-strong)] bg-[var(--ivory)] text-[var(--ink)] hover:bg-white",variant==="text"&&"border-0 px-0 text-[var(--wine)] shadow-none underline-offset-4 hover:underline",className);return href?<Link href={href} className={classes}>{children}</Link>:<button className={classes} {...props}>{children}</button>}

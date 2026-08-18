@@ -1,0 +1,6 @@
+import type { Consultation } from "@/types/consultation";
+export const consultations:Consultation[]=[
+{id:"c1",slug:"consultatie-scrisa",title:"Consultație scrisă",type:"consultație",price:250,image:"/images/consultations/scrisa.png",description:"Răspuns structurat la o întrebare despre model, material sau tehnică.",duration:"—",responseTime:"3–5 zile lucrătoare",includes:["Analiza întrebării","Recomandări clare","Resurse orientative"],clientSends:"Întrebarea și 2–4 fotografii clare."},
+{id:"c2",slug:"consultatie-video",title:"Consultație video",type:"consultație",price:350,image:"/images/consultations/video.png",description:"O întâlnire individuală pentru a clarifica alegerile și pașii unui proiect.",duration:"45 minute",responseTime:"Programare în 5–7 zile",includes:["Discuție video","Plan de lucru","Rezumat după întâlnire"],clientSends:"Contextul proiectului și fotografii înainte de apel."},
+{id:"c3",slug:"analiza-iei",title:"Analiza unei ii vechi",type:"consultație",price:450,image:"/images/consultations/analiza.png",description:"Lectură atentă a structurii, motivelor și particularităților unei piese.",duration:"Raport de 3–5 pagini",responseTime:"7–10 zile lucrătoare",includes:["Observații de structură","Interpretare prudentă","Direcții de cercetare"],clientSends:"Fotografii față/spate, detalii și orice informație de proveniență."}
+];

@@ -1,0 +1,1 @@
+export const navigation=[{href:"/despre-autoare",label:"Despre"},{href:"/carti",label:"Cărți"},{href:"/planse",label:"Planșe"},{href:"/consultatii",label:"Consultații"},{href:"/blog",label:"Jurnal"},{href:"/magazin",label:"Magazin"}];

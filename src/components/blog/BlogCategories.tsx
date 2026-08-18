@@ -1,0 +1,1 @@
+export function BlogCategories(){return <div className="flex flex-wrap gap-2">{["Toate","Atelier","Cercetare","Simboluri","Materiale","Patrimoniu"].map(x=><span className="rounded-full border border-black/15 px-4 py-2 text-sm" key={x}>{x}</span>)}</div>}
