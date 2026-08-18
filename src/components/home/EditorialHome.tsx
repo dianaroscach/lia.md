@@ -4,7 +4,7 @@ import {Container} from "@/components/layout/Container";
 import {Button} from "@/components/ui/Button";
 
 const collections=[
-  {title:"Cărți de patrimoniu",image:"/images/books/volumul-i.png",href:"/carti",cta:"Vezi cărțile"},
+  {title:"Cărți de patrimoniu",image:"/images/books/rapsodia-patrimoniului.png",href:"/carti",cta:"Vezi cărțile"},
   {title:"Planșe pentru cusut",image:"/images/patterns/basarabia.png",href:"/planse",cta:"Vezi planșele"},
   {title:"Îndrumare personală",image:"/images/consultations/analiza.png",href:"/consultatii",cta:"Descoperă consultațiile"},
 ];
