@@ -13,4 +13,15 @@ export type DianaTask = {
 };
 
 // Temporary development data source. Diana's GPT can add/update tasks here.
-export const dianaTasks: DianaTask[] = [];
+export const dianaTasks: DianaTask[] = [
+  {
+    id: "inlocuire-jurnal-fata-fara-zestre",
+    title: "Înlocuirea compartimentului „Jurnal” cu blogul „Fata fără zestre”",
+    page: "Blog / Jurnal",
+    description:
+      "Înlocuirea compartimentului existent „Jurnal” cu un blog dedicat proiectului „Fata fără zestre”.",
+    status: "de_facut",
+    priority: "important",
+    createdAt: "2026-08-20",
+  },
+];
