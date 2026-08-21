@@ -44,4 +44,16 @@ export const dianaTasks: DianaTask[] = [
     priority: "important",
     createdAt: "2026-08-20",
   },
+  {
+    id: "structura-detaliata-meniu",
+    title: "Implementarea structurii detaliate a meniului",
+    page: "Meniu principal și submeniuri",
+    description:
+      "PARTEA STÂNGĂ\n\nPovestea noastră\n- Fără submeniu.\n\nAtelier de cusut\n- Șezătoarea din Ialoveni — Gratuit\n- Șezătoarea din Costești — Gratuit\n- Atelier privat pentru maximum 20 de persoane — 5.000 MDL/grup\n- Consultație individuală online — 600 MDL\n\nCărți\n- Rapsodia patrimoniului\n- Înțelepciunea acului\n\nPlanșe\n- Planșa X\n- Planșa Y\n- Alte planșe adăugate ulterior\n\nCreatoare\n- Svetlana Maftei\n- Diana Roșca\n- Tatiana Luca\n- Tatiana Borta\n- Alte creatoare\n\nPARTEA DREAPTĂ\n\nProiecte\n- Aici vor fi adăugate proiectele și activitățile realizate, fiecare cu fotografii, perioadă, localitate, parteneri și rezultate.\n\nJurnal | Contact | Coș",
+    status: "de_facut",
+    priority: "important",
+    createdAt: "2026-08-21",
+    note:
+      "Dacă lista va crește mult, nu afișa toate planșele și toate creatoarele direct în submeniu. Afișează primele 4–6 elemente, apoi opțiunea „Vezi toate planșele” sau „Vezi toate creatoarele”. Meniul trebuie să rămână aerisit și ușor de folosit pe telefon.",
+  },
 ];
