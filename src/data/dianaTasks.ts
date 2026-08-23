@@ -68,4 +68,16 @@ export const dianaTasks: DianaTask[] = [
     note:
       "Acest task actualizează direcția anterioară în care cărțile și planșele erau tratate ca produse de magazin. Pentru acestea, noua prioritate este prezentarea + contact direct, nu checkout. Atelierele și consultațiile pot afișa prețul, dar înscrierea se poate face prin formular/contact.",
   },
+  {
+    id: "atelier-privat-formular-fara-plata-online",
+    title: "Atelier privat: formular de solicitare și contact, fără plată online",
+    page: "Ateliere / Atelier privat",
+    description:
+      "Pentru atelierul privat destinat unui grup de până la 20 de persoane, elimină logica de cumpărare și plată online. Pagina atelierului trebuie să funcționeze ca o solicitare de ofertă / rezervare. Utilizatorul trebuie să poată selecta sau propune data dorită, să indice numărul aproximativ de participanți și să descrie detaliile evenimentului sau cerințele speciale. Adaugă un formular cu minimum: nume, telefon, email, data dorită, număr de participanți, localitate / locație, mesaj cu detalii și buton de trimitere. După submit, afișează un mesaj clar că solicitarea a fost înregistrată și că organizatorul va lua legătura pentru confirmarea detaliilor. Nu crea checkout și nu solicita plata cu cardul. Prețul poate fi afișat orientativ sau „de la”, dar oferta finală se confirmă după discuție.",
+    status: "de_facut",
+    priority: "important",
+    createdAt: "2026-08-23",
+    note:
+      "Motivul: atelierul se contractează individual, iar condițiile finale depind de dată, locație, numărul de participanți și detalii. După contact se poate încheia un contract privat. CTA recomandat: „Solicită atelierul” sau „Discută detaliile”.",
+  },
 ];
