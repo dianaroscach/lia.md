@@ -56,4 +56,16 @@ export const dianaTasks: DianaTask[] = [
     note:
       "Dacă lista va crește mult, nu afișa toate planșele și toate creatoarele direct în submeniu. Afișează primele 4–6 elemente, apoi opțiunea „Vezi toate planșele” sau „Vezi toate creatoarele”. Meniul trebuie să rămână aerisit și ușor de folosit pe telefon.",
   },
+  {
+    id: "revizuire-structura-site-contact-in-loc-de-vanzare",
+    title: "Revizuirea structurii site-ului: prezentare și contact în loc de vânzare online",
+    page: "Meniu, Ateliere, Cărți, Planșe, Mentori, Proiecte / Evenimente",
+    description:
+      "Actualizează structura și logica site-ului după următoarea direcție:\n\n1. POVESTEA NOASTRĂ\n- Primul element din meniu.\n- Pagină separată, fără submeniu complicat.\n\n2. ATELIERE\n- Al doilea element din meniu.\n- La click se deschide pagina Ateliere, unde sunt prezentate clar ofertele, nu neapărat ca produse de magazin.\n- Include cel puțin:\n  • Înscriere la șezătoare / activități pentru elevi — Gratuit.\n  • Atelier pentru adulți, grup de maximum 20 de persoane — cu preț afișat.\n  • Consultație privată / individuală — cu preț afișat.\n- Fiecare atelier trebuie să aibă pagină sau card clar cu descriere, pentru cine este, condiții și CTA de înscriere/contact.\n\n3. CĂRȚI\n- Cărțile NU trebuie tratate ca produse ecommerce și nu trebuie să aibă flux de cumpărare online.\n- La click pe o carte se deschide o pagină de prezentare editorială.\n- Exemplu: „Rapsodia patrimoniului” — copertă, povestea cărții, descriere, ce conține, cui se adresează și imagini din interior.\n- CTA principal: „Ia legătura cu autorul”.\n- CTA-ul trebuie să conducă spre contact / mesaj către autor, nu spre coș sau checkout.\n\n4. PLANȘE\n- Fără submeniu inutil dacă sunt puține. Click pe „Planșe” deschide direct pagina dedicată.\n- Planșele pot fi prezentate individual, dar nu ca produse cu checkout.\n- CTA: „Ia legătura cu creatorul / designerul” sau o formulare echivalentă.\n\n5. MENTORI / CREATOARE\n- Adaugă o secțiune în navigare și în site pentru mentorii / creatoarele implicate.\n- Fiecare persoană poate avea o prezentare scurtă și domeniul în care poate ajuta.\n- Denumirea finală poate fi „Mentori”, „Creatoare” sau altă variantă potrivită tonului brandului.\n\n6. PARTEA DREAPTĂ A NAVBARULUI\n- Adaugă „Proiecte” și/sau „Evenimente” pentru activități realizate și evenimente curente/viitoare.\n- Apoi „Jurnal”, păstrat mai scurt și mai puțin dominant în navigare.\n- Contactul rămâne disponibil clar.\n\n7. DIRECȚIE GENERALĂ\n- Site-ul nu trebuie să arate ca un magazin online clasic.\n- Accentul trebuie să fie pe patrimoniu, prezentare, ateliere, mentorat și contact direct cu autorul/creatorul.\n- Elimină logica de cumpărare online pentru cărți și planșe acolo unde există acum.",
+    status: "de_facut",
+    priority: "important",
+    createdAt: "2026-08-23",
+    note:
+      "Acest task actualizează direcția anterioară în care cărțile și planșele erau tratate ca produse de magazin. Pentru acestea, noua prioritate este prezentarea + contact direct, nu checkout. Atelierele și consultațiile pot afișa prețul, dar înscrierea se poate face prin formular/contact.",
+  },
 ];
