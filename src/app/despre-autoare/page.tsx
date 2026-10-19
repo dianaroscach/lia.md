@@ -26,7 +26,7 @@ export default function About() {
       <Container>
         <div className="grid gap-6 pb-10 md:grid-cols-[1.2fr_1fr] md:items-end md:gap-16 md:pb-14">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[.2em] text-[var(--wine)]">Povestea noastră</p>
+            <p className="eyebrow">Povestea noastră</p>
             <h1 className="mt-5 text-5xl leading-[1.08] md:text-7xl">Un fir care<br />ne aduce împreună.</h1>
           </div>
           <p className="max-w-xl text-lg leading-8 text-[var(--muted)]">Suntem Șezătoarea Ciocârlia. Ne-a adus împreună dorința de a coase o cămașă care să ne exprime sufletul. Am descoperit, alături de ea, o comunitate în care învățăm și ducem tradiția mai departe.</p>
@@ -38,7 +38,7 @@ export default function About() {
 
     <section className="pb-16 md:pb-24">
       <Container className="grid gap-8 md:grid-cols-[1fr_1.5fr] md:gap-20">
-        <div><p className="text-xs font-semibold uppercase tracking-[.2em] text-[var(--wine)]">Începuturile</p><h2 className="mt-4 text-4xl md:text-5xl">Din dorința<br />de a învăța.</h2></div>
+        <div><p className="eyebrow">Începuturile</p><h2 className="mt-4 text-4xl md:text-5xl">Din dorința<br />de a învăța.</h2></div>
         <div className="prose-custom text-[var(--muted)]">
           <p>Comunitatea „Șezătoarea Ciocârlia” s-a născut firesc, fără planuri mărețe și fără un program prestabilit. La început, multe dintre noi nu știam ce înseamnă o piesă autentică sau o cămașă cusută „după canon”. Ne unea însă nevoia de a înțelege și de a regăsi un fir rupt din continuitatea tradiției.</p>
           <p>Studiul, migala și sprijinul reciproc s-au transformat în cămăși pline de sens. Împreună am redescoperit vechile tehnici de cusut, simbolurile, compozițiile ornamentale și sensurile din culori și din organizarea decorului. Cămășile noastre vorbesc despre viață, apartenență, credință și dragoste maternă.</p>
@@ -57,7 +57,7 @@ export default function About() {
         </div>
           </div>
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[.2em] text-[var(--wine)]">Meșteșug și răbdare</p>
+            <p className="eyebrow">Meșteșug și răbdare</p>
             <h2 className="mt-4 text-4xl md:text-5xl">Fiecare cămașă,<br />o nouă cercetare.</h2>
             <p className="mt-6 text-base leading-8 text-[var(--muted)]">În cinci ani de activitate, am creat aproximativ 90 de cămăși pentru femei, bărbați și copii. Coasem pe pânză naturală de in, bumbac sau cânepă, cu fire de bumbac ori de mătase.</p>
             <p className="mt-5 text-base leading-8 text-[var(--muted)]">Butucei, cusătură la fir, lănțișor, șinătău, brânel, ateste: fiecare tehnică ne apropie de cunoașterea celor dinaintea noastră. Pornim de la izvoade vechi basarabene sau reimaginăm modele, cu respect pentru autenticitate și pentru logica vechii cămăși tradiționale.</p>
@@ -70,7 +70,7 @@ export default function About() {
     <section className="py-16 md:py-24">
       <Container className="grid items-center gap-10 md:grid-cols-2 md:gap-16">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[.2em] text-[var(--wine)]">Din generație în generație</p>
+          <p className="eyebrow">Din generație în generație</p>
           <h2 className="mt-4 text-4xl md:text-5xl">Cunoașterea crește<br />când o împărtășim.</h2>
           <p className="mt-6 text-base leading-8 text-[var(--muted)]">La șezătoare, fiecare femeie este, pe rând, ucenică și îndrumătoare. Învățăm unele de la altele, ne împărtășim experiența și apropiem copiii și tinerii de patrimoniul cultural.</p>
           <p className="mt-5 text-base leading-8 text-[var(--muted)]">Cămășile sunt făcute pentru a fi purtate la sărbători, în momente importante și în viața de familie. Transmise din mână în mână, ele devin un patrimoniu viu, personal și familial, dar și comunitar.</p>
@@ -82,7 +82,7 @@ export default function About() {
     <section className="border-t border-[var(--line)] py-16 md:py-20">
       <Container>
         <div className="mb-10 grid gap-6 md:grid-cols-2 md:gap-16">
-          <div><p className="text-xs font-semibold uppercase tracking-[.2em] text-[var(--wine)]">O comunitate vie</p><h2 className="mt-4 text-4xl md:text-5xl">Oamenii din poveste.</h2></div>
+          <div><p className="eyebrow">O comunitate vie</p><h2 className="mt-4 text-4xl md:text-5xl">Oamenii din poveste.</h2></div>
           <p className="text-base leading-8 text-[var(--muted)]">La expoziții, ateliere, festivaluri și evenimente culturale din Republica Moldova și din afara țării, ducem cu noi ceea ce învățăm la șezătoare. Tradiția, cunoscută și practicată cu responsabilitate, își găsește locul în viața de astăzi.</p>
         </div>
       </Container>
@@ -91,7 +91,7 @@ export default function About() {
 
     <section className="bg-[var(--mist)] py-16 md:py-24">
       <Container className="max-w-[900px] text-center">
-        <p className="text-xs font-semibold uppercase tracking-[.2em] text-[var(--wine)]">Ce ducem mai departe</p>
+        <p className="eyebrow">Ce ducem mai departe</p>
         <h2 className="mt-5 text-4xl leading-tight md:text-5xl">Fiecare cămașă începută<br />este o promisiune.</h2>
         <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-[var(--muted)]">Ne dorim să păstrăm și să transmitem cunoașterea, să formăm noi creatoare și să contribuim la protejarea cămășii cu altiță ca expresie identitară. Firul tradiției continuă prin oamenii care îl poartă, îl cercetează și îl transmit mai departe.</p>
         <div className="mt-9 flex flex-wrap justify-center gap-4"><Button href="/atelier">Vino la șezătoare</Button><Button href="/creatoare" variant="secondary">Cunoaște creatoarele</Button></div>

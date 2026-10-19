@@ -1,5 +1,15 @@
 import Link from "next/link";
-import type { ButtonHTMLAttributes,ReactNode } from "react";
+import type { ButtonHTMLAttributes, ReactNode } from "react";
 import { cx } from "@/lib/utils";
-const styles="inline-flex min-h-11 items-center justify-center rounded-[6px] border px-7 py-3 text-[11px] font-semibold uppercase tracking-[.1em] transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--cta)]";
-export function Button({href,children,variant="primary",className="",...props}:{href?:string;children:ReactNode;variant?:"primary"|"secondary"|"text";className?:string}&ButtonHTMLAttributes<HTMLButtonElement>){const classes=cx(styles,variant==="primary"&&"border-[#385533] bg-[#385533] text-white hover:bg-[var(--cta-dark)]",variant==="secondary"&&"border-[#385533] bg-white text-[#385533] hover:bg-[#385533] hover:text-white",variant==="text"&&"border-0 px-0 text-[var(--cta)] shadow-none underline-offset-4 hover:underline",className);return href?<Link href={href} className={classes}>{children}</Link>:<button className={classes} {...props}>{children}</button>}
+
+type Variant = "primary" | "secondary" | "tertiary" | "inverse";
+
+export function Button({ href, children, variant = "primary", className = "", ...props }: {
+  href?: string;
+  children: ReactNode;
+  variant?: Variant;
+  className?: string;
+} & ButtonHTMLAttributes<HTMLButtonElement>) {
+  const classes = cx("button", `button--${variant}`, className);
+  return href ? <Link href={href} className={classes}>{children}</Link> : <button className={classes} {...props}>{children}</button>;
+}

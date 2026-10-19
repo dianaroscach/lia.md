@@ -1,135 +1,125 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
-import type { BookDescriptionBlock } from "@/data/bookDescriptions";
+import { bookDescriptions } from "@/data/bookDescriptions";
 import type { Book } from "@/types/book";
 
-type BooksLibraryProps = {
-  books: Book[];
-  descriptions: Record<string, BookDescriptionBlock[]>;
+type BooksLibraryProps = { books: Book[] };
+
+type PreviewSlide = {
+  src: string;
+  alt: string;
+  position?: string;
 };
 
-type ContentGroup = {
-  title: string;
-  blocks: BookDescriptionBlock[];
+const bookPreviews: Record<string, PreviewSlide[]> = {
+  b2: [
+    { src: "/images/books/intelepciunea-editorial.webp", alt: "Coperta cărții Înțelepciunea acului" },
+    { src: "/images/books/intelepciunea-acului.png", alt: "Detaliu al copertei cărții Înțelepciunea acului" },
+    { src: "/images/books/intelepciunea-editorial.webp", alt: "Detaliu din cartea Înțelepciunea acului", position: "50% 72%" },
+  ],
+  b1: [
+    { src: "/images/books/rapsodia-editorial.webp", alt: "Coperta cărții Rapsodia patrimoniului" },
+    { src: "/images/books/rapsodia-patrimoniului.png", alt: "Detaliu al copertei cărții Rapsodia patrimoniului" },
+    { src: "/images/books/rapsodia-editorial.webp", alt: "Detaliu din cartea Rapsodia patrimoniului", position: "50% 72%" },
+  ],
 };
 
-const metaPattern = /^(Autori?:|Tipul copertei:|Limba:|Ediție:)/;
-
-function groupDescription(blocks: BookDescriptionBlock[]) {
-  const meta = blocks.filter((block) => block.type === "text" && metaPattern.test(block.text));
-  const body = blocks.filter((block) => !(block.type === "text" && metaPattern.test(block.text)));
-  const listIndexes = body.flatMap((block, index) => block.type === "list" ? [index] : []);
-
-  if (listIndexes.length === 1) {
-    const listIndex = listIndexes[0];
-    return {
-      intro: body.slice(0, 2),
-      groups: [
-        { title: "Povestea și contextul", blocks: body.slice(2, Math.max(2, listIndex - 1)) },
-        { title: "Cui îi este recomandată", blocks: body.slice(Math.max(2, listIndex - 1)) },
-      ].filter((group) => group.blocks.length > 0),
-      meta,
-    };
-  }
-
-  const firstList = listIndexes[0] ?? body.length;
-  const secondList = listIndexes[1] ?? body.length;
-  const introEnd = Math.max(0, firstList - 1);
-
-  const groups: ContentGroup[] = [
-    { title: "Ce vei găsi în carte", blocks: body.slice(introEnd, firstList + 1) },
-    { title: "Povestea și contextul", blocks: body.slice(firstList + 1, Math.max(firstList + 1, secondList - 1)) },
-    { title: "Cui îi este recomandată", blocks: secondList < body.length ? body.slice(secondList - 1) : [] },
-  ].filter((group) => group.blocks.length > 0);
-
-  return { intro: body.slice(0, introEnd), groups, meta };
+function Arrow({ direction }: { direction: "previous" | "next" }) {
+  return <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" className="size-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d={direction === "previous" ? "m14 6-6 6 6 6" : "m10 6 6 6-6 6"} />
+  </svg>;
 }
 
-function Blocks({ blocks }: { blocks: BookDescriptionBlock[] }) {
-  return <div className="space-y-3">
-    {blocks.map((block, index) => block.type === "list" ?
-      <ul key={index} className="list-disc space-y-2 pl-5 marker:text-[var(--olive)]">
-        {block.items.map((item) => <li key={item}>{item}</li>)}
-      </ul> :
-      <p key={index}>{block.text}</p>
-    )}
-  </div>;
-}
+function BookPreview({ book }: { book: Book }) {
+  const slides = bookPreviews[book.id] ?? [{ src: book.image, alt: `Coperta cărții ${book.title}` }];
+  const [activeSlide, setActiveSlide] = useState(0);
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const previousOverflow = useRef("");
+  const goToSlide = (index: number) => setActiveSlide((index + slides.length) % slides.length);
+  const slide = slides[activeSlide];
+  const readingDescription = bookDescriptions[book.id]
+    ?.slice(book.id === "b2" ? 2 : 1)
+    .filter((block) => block.type === "list" || !/^(Autori?:|Tipul copertei:|Limba:|Ediție:)/.test(block.text));
 
-export function BooksLibrary({ books, descriptions }: BooksLibraryProps) {
-  const [activeId, setActiveId] = useState(books[0].id);
-  const activeBook = books.find((book) => book.id === activeId) ?? books[0];
-  const activeIndex = books.findIndex((book) => book.id === activeBook.id);
-  const { intro, groups, meta } = groupDescription(descriptions[activeBook.id]);
+  const openDescription = () => {
+    previousOverflow.current = document.body.style.overflow;
+    dialogRef.current?.showModal();
+    document.body.style.overflow = "hidden";
+  };
 
-  return <section aria-labelledby="book-picker-title" className="border-t border-[var(--line)] pt-7">
-    <div className="mb-7 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-      <div>
-        <p className="text-[10px] font-semibold uppercase tracking-[.2em] text-[var(--wine)]">Biblioteca Ciocârlia</p>
-        <h2 id="book-picker-title" className="mt-2 text-2xl md:text-3xl">Alege cartea pe care vrei să o descoperi</h2>
+  const closeDescription = () => {
+    document.body.style.overflow = previousOverflow.current;
+    triggerRef.current?.focus();
+  };
+
+  const imageOnRight = book.id === "b1";
+  const authorLabel = book.authors.length === 1 ? "Autor" : "Autori";
+
+  return <article className={imageOnRight ? "relative isolate px-5 py-12 sm:px-7 sm:py-14 lg:px-9 lg:py-16" : ""}>
+    {imageOnRight && <div aria-hidden="true" className="absolute inset-y-0 left-1/2 -z-10 w-screen -translate-x-1/2 bg-[var(--mist)]" />}
+    <div className={`grid lg:items-center lg:gap-15 ${imageOnRight ? "lg:grid-cols-[minmax(0,1fr)_420px]" : "lg:grid-cols-[420px_minmax(0,1fr)]"}`}>
+      <div className={imageOnRight ? "lg:order-2" : "p-5 sm:p-7 lg:py-8 lg:pl-0 lg:pr-0"}>
+      <div className="max-w-[420px]">
+      <div className="relative h-[400px] overflow-hidden bg-[var(--sand)]">
+        <Image key={slide.src + activeSlide} src={slide.src} alt={slide.alt} fill sizes="(max-width: 1024px) calc(100vw - 64px), 50vw" className="object-cover transition-opacity duration-300" style={{ objectPosition: slide.position ?? "center" }} priority={book.id === "b2" && activeSlide === 0} />
+        <button type="button" aria-label={`Pagina precedentă din ${book.title}`} onClick={() => goToSlide(activeSlide - 1)} className="absolute left-3 top-1/2 grid size-9 -translate-y-1/2 place-items-center rounded-full border border-white/70 bg-white/90 text-[var(--forest)] shadow-sm transition-transform hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--wine)]"><Arrow direction="previous" /></button>
+        <button type="button" aria-label={`Pagina următoare din ${book.title}`} onClick={() => goToSlide(activeSlide + 1)} className="absolute right-3 top-1/2 grid size-9 -translate-y-1/2 place-items-center rounded-full border border-white/70 bg-white/90 text-[var(--forest)] shadow-sm transition-transform hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--wine)]"><Arrow direction="next" /></button>
       </div>
-      <p className="text-sm text-[var(--muted)]">Conținutul se deschide mai jos, în aceeași pagină.</p>
+
+      <div className="mt-4 flex items-center justify-center gap-1.5" aria-label={`Pagina ${activeSlide + 1} din ${slides.length}`}>
+        {slides.map((_, index) => <span key={index} aria-hidden="true" className={`size-1.5 rounded-full ${index === activeSlide ? "bg-[var(--forest)]" : "bg-[var(--line-strong)]"}`} />)}
+        <span className="ml-3 text-[10px] font-semibold tracking-[.16em] text-[var(--muted)]">{activeSlide + 1} / {slides.length}</span>
+      </div>
+
+      <div className="mt-4 grid grid-cols-3 gap-2">
+        {slides.map((preview, index) => <button key={`${preview.src}-${index}`} type="button" onClick={() => setActiveSlide(index)} aria-label={`Arată pagina ${index + 1} din ${book.title}`} aria-current={index === activeSlide ? "true" : undefined} className={`relative aspect-[1.45] overflow-hidden border transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--wine)] ${index === activeSlide ? "border-[var(--forest)]" : "border-transparent hover:border-[var(--line-strong)]"}`}>
+          <Image src={preview.src} alt="" fill sizes="160px" className="object-cover" style={{ objectPosition: preview.position ?? "center" }} />
+        </button>)}
+      </div>
+    </div>
     </div>
 
-    <div role="tablist" aria-label="Cărțile disponibile" className="grid gap-3 sm:grid-cols-2">
-      {books.map((book) => {
-        const selected = book.id === activeBook.id;
-        return <button
-          key={book.id}
-          id={`book-tab-${book.id}`}
-          type="button"
-          role="tab"
-          aria-selected={selected}
-          aria-controls="selected-book"
-          onClick={() => setActiveId(book.id)}
-          className={`group grid min-h-32 grid-cols-[82px_1fr] items-center gap-4 border p-3 text-left transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--wine)] ${selected ? "border-[var(--forest)] bg-[var(--paper)]" : "border-[var(--line)] hover:border-[var(--line-strong)]"}`}
-        >
-          <span className="relative block aspect-[1066/1475] overflow-hidden bg-white">
-            <Image src={book.image} alt="" fill sizes="82px" className="object-cover" />
-          </span>
-          <span>
-            <span className={`text-[10px] font-semibold uppercase tracking-[.16em] ${selected ? "text-[var(--wine)]" : "text-[var(--muted)]"}`}>{book.id === "b2" ? "Ghid practic" : "Album-document"}</span>
-            <span className="mt-1 block font-serif text-xl leading-tight text-[var(--ink)] md:text-2xl">{book.title}</span>
-            <span className="mt-2 block text-xs font-semibold uppercase tracking-[.12em] text-[var(--forest)]">{selected ? "Selectată" : "Vezi cartea"} →</span>
-          </span>
-        </button>;
-      })}
+    <div className={`flex flex-col justify-center ${imageOnRight ? "pt-6 sm:pt-8 lg:order-1 lg:py-0" : "p-6 sm:p-8 lg:py-8 lg:pl-0 lg:pr-0"}`}>
+      <p className="eyebrow">{book.id === "b2" ? "Ghid practic" : "Album-document"}</p>
+      <h2 className="mt-4 text-4xl leading-[1.05] md:text-5xl">{book.title}</h2>
+      <p className="mt-3 font-serif text-xl leading-7 text-[var(--ink)]">{book.subtitle}</p>
+      <p className="mt-2 text-sm font-semibold text-[var(--ink)]">{authorLabel}: {book.authors.join(" și ")}</p>
+      <p className="mt-5 max-w-none text-base leading-7 text-[var(--muted)]">
+        {book.description}{" "}
+        <button ref={triggerRef} type="button" aria-haspopup="dialog" aria-controls={`book-details-${book.id}`} onClick={openDescription} className="text-action focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--cta)]">Citește mai mult</button>
+      </p>
+      <div className="mt-6"><Button href="/contact" variant="secondary">Ia legătura cu autorul</Button></div>
     </div>
-
-    <article id="selected-book" role="tabpanel" aria-labelledby={`book-tab-${activeBook.id}`} className="mt-8 scroll-mt-28 border-y border-[var(--line)] py-8 md:mt-10 md:py-12">
-      <div className="grid items-start gap-8 md:grid-cols-[minmax(0,300px)_minmax(0,1fr)] md:gap-12 lg:gap-16">
-        <aside>
-          <Image src={activeBook.image} alt={`Coperta cărții „${activeBook.title}”`} width={1066} height={1475} preload={activeIndex === 0} sizes="(max-width: 768px) 320px, 300px" className="mx-auto h-auto w-full max-w-[300px]" />
-          <div className="mx-auto mt-5 max-w-[300px]"><Button href="/contact" className="w-full">Întreabă despre carte</Button></div>
-        </aside>
-
-        <div>
-          <p className="text-[10px] font-semibold uppercase tracking-[.18em] text-[var(--wine)]">{activeBook.id === "b2" ? "Ghid practic · Meșteșug" : "Album-document · Comunitate"}</p>
-          <h3 className="mt-2 text-3xl md:text-5xl">{activeBook.title}</h3>
-          <p className="mt-3 max-w-2xl font-serif text-xl leading-7 text-[var(--olive)]">{activeBook.subtitle}</p>
-
-          <div className="mt-6 max-w-3xl text-[15px] leading-7 text-[var(--muted)]">
-            <Blocks blocks={intro} />
+    </div>
+    <dialog ref={dialogRef} id={`book-details-${book.id}`} aria-labelledby={`book-details-title-${book.id}`} onClose={closeDescription} onClick={(event) => { if (event.target === event.currentTarget) event.currentTarget.close(); }} className="fixed inset-y-0 right-0 left-auto m-0 ml-auto h-dvh max-h-dvh w-full max-w-[680px] overflow-hidden border-0 bg-[var(--paper)] p-0 text-[var(--ink)] shadow-2xl backdrop:bg-black/50">
+      <div className="flex h-full flex-col">
+        <div className="sticky top-0 z-10 flex items-start justify-between gap-6 border-b border-[var(--line)] bg-[var(--paper)] px-6 py-5 sm:px-9">
+          <div>
+            <p className="eyebrow">Despre carte</p>
+            <h2 id={`book-details-title-${book.id}`} className="mt-2 text-3xl leading-tight">{book.title}</h2>
+            <p className="mt-1 text-sm text-[var(--muted)]">{authorLabel}: {book.authors.join(" și ")}</p>
           </div>
-
-          <dl className="mt-7 grid gap-x-8 gap-y-3 border-y border-[var(--line)] py-5 text-sm sm:grid-cols-2">
-            {meta.map((block) => block.type === "text" ? <div key={block.text} className="flex gap-2"><dd className="text-[var(--ink)]">{block.text}</dd></div> : null)}
-          </dl>
-
-          <div className="mt-6 divide-y divide-[var(--line)] border-y border-[var(--line)]">
-            {groups.map((group, index) => <details key={group.title} open={index === 0} className="group/details">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5 font-semibold text-[var(--forest)] marker:hidden focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--wine)]">
-                <span>{group.title}</span>
-                <span aria-hidden="true" className="text-lg font-normal transition-transform group-open/details:rotate-180">⌄</span>
-              </summary>
-              <div className="max-w-3xl pb-6 text-[14px] leading-[1.8] text-[var(--muted)]"><Blocks blocks={group.blocks} /></div>
-            </details>)}
+          <button type="button" autoFocus aria-label="Închide descrierea cărții" onClick={() => dialogRef.current?.close()} className="grid size-10 shrink-0 place-items-center rounded-full border border-[var(--line-strong)] text-2xl leading-none text-[var(--forest)] hover:bg-[var(--mist)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--wine)]">×</button>
+        </div>
+        <div className="overflow-y-auto px-6 py-6 sm:px-9">
+          <div className="space-y-4 text-base leading-7 text-[var(--muted)]">
+            {readingDescription ? readingDescription.map((block, index) => block.type === "list" ?
+              <ul key={index} className="list-disc space-y-2 pl-6 marker:text-[var(--forest)]">{block.items.map((item) => <li key={item}>{item}</li>)}</ul> :
+              <p key={index}>{block.text}</p>
+            ) : book.story.split("\n\n").map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
           </div>
         </div>
       </div>
-    </article>
+    </dialog>
+  </article>;
+}
+
+export function BooksLibrary({ books }: BooksLibraryProps) {
+  return <section aria-label="Biblioteca Ciocârlia" className="pt-2 md:pt-4">
+    <div className="space-y-12 md:space-y-16">{books.map((book) => <BookPreview key={book.id} book={book} />)}</div>
   </section>;
 }
