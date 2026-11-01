@@ -1,2 +1,5 @@
-import type {Metadata} from "next";import {articles} from "@/data/articles";import {ArticleCard} from "@/components/blog/ArticleCard";import {BlogCategories} from "@/components/blog/BlogCategories";import {Container} from "@/components/layout/Container";import {SectionHeading} from "@/components/ui/SectionHeading";
-export const metadata:Metadata={title:"Fata fără zestre",description:"Jurnalul proiectului Fata fără zestre: oameni, locuri, memorie și patrimoniu textil."};export default function Blog(){return <Container className="py-20"><SectionHeading eyebrow="Jurnal de proiect" title="Fata fără zestre" intro="Un blog despre oameni, locuri și firele de memorie care alcătuiesc proiectul Fata fără zestre."/><div className="mt-8"><BlogCategories/></div><div className="mt-12 grid gap-x-8 gap-y-14 md:grid-cols-2 lg:grid-cols-3">{articles.map(a=><ArticleCard key={a.slug} article={a}/>)}</div></Container>}
+import { permanentRedirect } from "next/navigation";
+
+export default function OldJournalPage() {
+  permanentRedirect("/jurnal");
+}

@@ -16,7 +16,7 @@ export async function POST(request: Request) {
       typeof requestId !== "string" || !/^[0-9a-f-]{36}$/i.test(requestId)) return failure("Verifică numele, adresa de email și mesajul.", 400);
   const key = process.env.RESEND_API_KEY;
   const from = process.env.CONTACT_EMAIL_FROM;
-  if (!key || !from) return failure("Trimiterea nu este disponibilă momentan. Scrie-ne direct la dianaroscach@gmail.com.", 503);
+  if (!key || !from) return failure("Trimiterea nu este disponibilă momentan.", 503);
   try {
     const response = await fetch("https://api.resend.com/emails", {
       method: "POST",

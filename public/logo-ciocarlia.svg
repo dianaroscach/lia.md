@@ -1,9 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 360" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="35 36 384 310" role="img" aria-labelledby="title desc">
   <title id="title">Ciocârlia</title>
   <desc id="desc">Simbol geometric inspirat de o pasăre și un romb tradițional</desc>
-  <path fill="#4b4d17" d="M20 215 143 105l67 69 67-69 123 110-99-29-67 69-24 25-24-25-67-69z"/>
-  <path fill="#4b4d17" d="m210 235 29 29-29 29-29-29z"/>
-  <path fill="#a71918" d="m210 22 58 58-58 58-58-58zm0 14-44 44 44 44 44-44z" fill-rule="evenodd"/>
-  <path fill="#4b4d17" d="m210 52 29 28-29 29-29-29z"/>
-  <text x="210" y="338" text-anchor="middle" fill="#a71918" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="800" letter-spacing="4">CIOCÂRLIA</text>
+  <path fill="#49491b" d="M42 228 159 111l68 67 68-67 117 117-106-28-64 64 11 11-15 14-11-11-11 11-15-14 11-11-64-64z"/>
+  <path fill="#aa100e" fill-rule="evenodd" d="m227 43 57 57-57 57-57-57zm0 14-43 43 43 43 43-43z"/>
+  <path fill="#49491b" d="m227 72 28 28-28 27-28-27z"/>
+  <text x="225" y="338" text-anchor="middle" fill="#aa100e" font-family="Arial Black, Arial, Helvetica, sans-serif" font-size="60" font-weight="900" letter-spacing="2" textLength="360" lengthAdjust="spacingAndGlyphs">CIOCARLIA</text>
 </svg>

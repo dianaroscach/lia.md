@@ -1,12 +1,12 @@
 @import "tailwindcss";
-.button{display:inline-flex;min-height:2.75rem;align-items:center;justify-content:center;gap:.5rem;border:1px solid transparent;border-radius:6px;padding:.75rem 1.75rem;font-size:11px;font-weight:600;letter-spacing:.1em;line-height:1.4;text-align:center;text-transform:uppercase;transition:background-color .2s,color .2s,border-color .2s;cursor:pointer}
+.button{display:inline-flex;min-height:3.25rem;align-items:center;justify-content:center;gap:.5rem;border:1px solid transparent;border-radius:6px;padding:.875rem 1.75rem;font-family:var(--font-body),Arial,sans-serif;font-size:12px;font-weight:600;letter-spacing:.08em;line-height:1.35;text-align:center;text-transform:uppercase;transition:background-color .2s,color .2s,border-color .2s;cursor:pointer}
 .button:focus-visible{outline:2px solid var(--cta);outline-offset:2px}
 .button:disabled{cursor:not-allowed;opacity:.6}
 .button--primary{border-color:var(--cta);background:var(--cta);color:#fff}
 .button--primary:hover,.button--primary:focus-visible{border-color:var(--cta-dark);background:var(--cta-dark)}
 .button--secondary{border-color:var(--cta);background:#fff;color:var(--cta)}
 .button--secondary:hover,.button--secondary:focus-visible{background:var(--cta);color:#fff}
-.button--tertiary{min-height:2.75rem;border-color:transparent;background:transparent;color:var(--cta);padding-inline:0}
+.button--tertiary{border-color:transparent;background:transparent;color:var(--cta);padding-inline:0}
 .button--tertiary:hover,.button--tertiary:focus-visible{color:var(--cta-dark);text-decoration:underline;text-underline-offset:4px}
 .text-action{font-size:11px;font-weight:600;letter-spacing:.1em;line-height:1.4;text-transform:uppercase;color:var(--cta);text-decoration:underline;text-decoration-color:transparent;text-underline-offset:4px;transition:color .2s,text-decoration-color .2s}
 .text-action:hover,.text-action:focus-visible{color:var(--cta-dark);text-decoration-color:currentColor}

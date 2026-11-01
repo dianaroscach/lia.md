@@ -12,18 +12,19 @@ type PreviewSlide = {
   src: string;
   alt: string;
   position?: string;
+  name?: string;
 };
 
 const bookPreviews: Record<string, PreviewSlide[]> = {
   b2: [
     { src: "/images/books/intelepciunea-editorial.webp", alt: "Coperta cărții Înțelepciunea acului" },
-    { src: "/images/books/intelepciunea-acului.png", alt: "Detaliu al copertei cărții Înțelepciunea acului" },
-    { src: "/images/books/intelepciunea-editorial.webp", alt: "Detaliu din cartea Înțelepciunea acului", position: "50% 72%" },
+    { src: "/images/books/intelepciunea-acului-cuprins.png", name: "Cuprins", alt: "Cuprinsul cărții Înțelepciunea acului: materiale, croi, decor, tehnici de cusut și planșe" },
+    { src: "/images/books/intelepciunea-acului-cheite-traditionale-pagina-55.png", name: "Cheițe tradiționale — pagina 55", alt: "Pagina 55 din Înțelepciunea acului, cu scheme și exemple de cusături: cheița gheruțe, cheița nodățică la 1 și cheița puricel" },
   ],
   b1: [
     { src: "/images/books/rapsodia-editorial.webp", alt: "Coperta cărții Rapsodia patrimoniului" },
-    { src: "/images/books/rapsodia-patrimoniului.png", alt: "Detaliu al copertei cărții Rapsodia patrimoniului" },
-    { src: "/images/books/rapsodia-editorial.webp", alt: "Detaliu din cartea Rapsodia patrimoniului", position: "50% 72%" },
+    { src: "/images/books/rapsodia-patrimoniului-cuprins.png", name: "Cuprins", alt: "Cuprinsul bilingv al cărții Rapsodia patrimoniului, cu secțiuni despre Șezătoarea Ciocârlia, creatoare și cămăși tradiționale" },
+    { src: "/images/books/rapsodia-patrimoniului-camasa-luminii-pagina-85.png", name: "Cămașa Luminii — pagina 85", alt: "Pagina 85 din Rapsodia patrimoniului: Cămașa Luminii, cusută de Mariana Sânduță, cu descriere bilingvă și fotografii ale broderiei în albastru, portocaliu și verde" },
   ],
 };
 
@@ -76,7 +77,7 @@ function BookPreview({ book }: { book: Book }) {
       </div>
 
       <div className="mt-4 grid grid-cols-3 gap-2">
-        {slides.map((preview, index) => <button key={`${preview.src}-${index}`} type="button" onClick={() => setActiveSlide(index)} aria-label={`Arată pagina ${index + 1} din ${book.title}`} aria-current={index === activeSlide ? "true" : undefined} className={`relative aspect-[1.45] overflow-hidden border transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--wine)] ${index === activeSlide ? "border-[var(--forest)]" : "border-transparent hover:border-[var(--line-strong)]"}`}>
+        {slides.map((preview, index) => <button key={`${preview.src}-${index}`} type="button" onClick={() => setActiveSlide(index)} aria-label={`Arată ${preview.name ?? `pagina ${index + 1}`} din ${book.title}`} title={preview.name ?? preview.alt} aria-current={index === activeSlide ? "true" : undefined} className={`relative aspect-[1.45] overflow-hidden border transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--wine)] ${index === activeSlide ? "border-[var(--forest)]" : "border-transparent hover:border-[var(--line-strong)]"}`}>
           <Image src={preview.src} alt="" fill sizes="160px" className="object-cover" style={{ objectPosition: preview.position ?? "center" }} />
         </button>)}
       </div>
@@ -92,7 +93,7 @@ function BookPreview({ book }: { book: Book }) {
         {book.description}{" "}
         <button ref={triggerRef} type="button" aria-haspopup="dialog" aria-controls={`book-details-${book.id}`} onClick={openDescription} className="text-action focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--cta)]">Citește mai mult</button>
       </p>
-      <div className="mt-6"><Button href="/contact" variant="secondary">Ia legătura cu autorul</Button></div>
+      <div className="mt-6"><Button href="/contact" variant="secondary">Comandă cartea</Button></div>
     </div>
     </div>
     <dialog ref={dialogRef} id={`book-details-${book.id}`} aria-labelledby={`book-details-title-${book.id}`} onClose={closeDescription} onClick={(event) => { if (event.target === event.currentTarget) event.currentTarget.close(); }} className="fixed inset-y-0 right-0 left-auto m-0 ml-auto h-dvh max-h-dvh w-full max-w-[680px] overflow-hidden border-0 bg-[var(--paper)] p-0 text-[var(--ink)] shadow-2xl backdrop:bg-black/50">

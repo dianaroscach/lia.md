@@ -1,3 +1,17 @@
-import type {Metadata} from "next";import {patterns} from "@/data/patterns";import {PatternCard} from "@/components/patterns/PatternCard";import {Container} from "@/components/layout/Container";import {SectionHeading} from "@/components/ui/SectionHeading";import {BlogCategories} from "@/components/blog/BlogCategories";
-export const metadata:Metadata={title:"Planșe de cusut",description:"Modele tradiționale în format fizic și digital, plus planșe personalizate."};
-export default function Patterns(){return <Container className="py-20"><SectionHeading eyebrow="Atelier" title="Planșe care fac modelul ușor de urmat." intro="O planșă este harta vizuală a cusăturii: arată ritmul punctelor, cromatica și felul în care ornamentul se repetă. Alege format fizic, digital sau un model personalizat."/><div className="mt-8"><BlogCategories/></div><div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">{patterns.map(p=><PatternCard key={p.id} pattern={p}/>)}</div></Container>}
+import type { Metadata } from "next";
+import { ComingSoon } from "@/components/layout/ComingSoon";
+
+export const metadata: Metadata = {
+  title: "Planșe",
+  description: "Pagina cu planșe de cusut Ciocârlia este în pregătire.",
+};
+
+export default function PatternsPage() {
+  return <ComingSoon
+    eyebrow="Planșe"
+    heading="Modele pentru următoarea cămașă."
+    intro="Pregătim o colecție de planșe inspirate din motive tradiționale, pentru cei care vor să descopere și să coasă mai departe aceste modele."
+    title="Planșele sunt în pregătire."
+    description="Revino curând pentru a descoperi primele modele de cusut."
+  />;
+}
