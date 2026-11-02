@@ -52,7 +52,7 @@ export default async function JournalEntryPage({ params }: { params: Promise<{ s
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {entry.photos.slice(1).map(photo => <figure key={photo.src}>
               <div className="relative aspect-[4/3] overflow-hidden bg-[var(--cream)]">
-                <Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover" />
+                <Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover" style={{ objectPosition: photo.objectPosition ?? "center" }} />
               </div>
               <figcaption className="mt-2 text-xs leading-5 text-[var(--muted)]">{photo.alt}</figcaption>
             </figure>)}

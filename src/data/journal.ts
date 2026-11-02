@@ -1,6 +1,7 @@
 export type JournalPhoto = {
   src: string;
   alt: string;
+  objectPosition?: string;
 };
 
 export type JournalEntry = {
@@ -38,7 +39,7 @@ export const journalEntries: JournalEntry[] = [
     ],
     photos: [
       { src: "/images/jurnal/geneva-ziua-iei-2.jpg", alt: "Expoziție de costume tradiționale la Ziua Iei din Geneva" },
-      { src: "/images/jurnal/geneva-ziua-iei-album-5.jpg", alt: "Trei participante în port tradițional la Ziua Iei din Geneva, una ținând cartea Înțelepciunea acului" },
+      { src: "/images/jurnal/geneva-ziua-iei-album-5.jpg", alt: "Trei participante în port tradițional la Ziua Iei din Geneva, una ținând cartea Înțelepciunea acului", objectPosition: "center 18%" },
       { src: "/images/jurnal/geneva-ziua-iei-album-4.jpg", alt: "Participanți în port tradițional pe scena evenimentului Ziua Iei la Geneva" },
       { src: "/images/jurnal/geneva-ziua-iei-album-3.jpg", alt: "Fotografie de grup cu participanții la Ziua Iei din Geneva, în port tradițional" },
       { src: "/images/jurnal/geneva-ziua-iei-album-2.jpg", alt: "Participantă în cămașă brodată cu roșu, privind costumele tradiționale expuse" },
@@ -84,13 +85,17 @@ export const journalEntries: JournalEntry[] = [
     place: "Costești",
     excerpt: "O zi de vară cu flori, cântec și obiceiuri trăite împreună la Costești.",
     paragraphs: [
-      "La Complexul Turistic Costești, membrele Șezătorii Ciocârlia s-au întâlnit cu Clubul Femeilor Active și Ansamblul Etnofolcloric «Glas de Sânziene» pentru a sărbători Sânzienele.",
-      "Au împletit coronițe din flori și au petrecut împreună prin cântec, joc și discuții despre tradițiile care le apropie.",
+      "Împreună cu minunatele doamne de la Șezătoarea Ciocârlia, Clubul Femeilor Active și Ansamblul Etnofolcloric „Glas de Sânziene”, ne-am adunat la Complexul Turistic „Costești” pentru a petrece așa cum se cuvine, împreună, sărbătoarea Sânzienelor – o zi de vară plină de tradiții, frumusețe și emoție.",
+      "Am împletit coronițe din flori, păstrând vie legătura cu obiceiurile strămoșești, dar și creând amintiri noi. Prin jocuri interactive, cântec, voie bună și discuții calde, ne-am cunoscut mai bine și am consolidat legături frumoase.",
+      "Astfel de întâlniri ne ajută să promovăm și să transmitem mai departe tinerei generații valorile noastre culturale, tradițiile și dragostea pentru ceea ce ne definește.",
+      "Mulțumim tuturor celor care au fost alături de noi și au contribuit la această zi specială. Împreună păstrăm tradițiile vii și construim comunități mai unite!",
     ],
     photos: [
-      { src: "/images/jurnal/sanziene-2.png", alt: "Grupul participantelor la sărbătoarea Sânzienelor din Costești" },
-      { src: "/images/jurnal/sanziene-1.png", alt: "Participante în port tradițional la sărbătoarea Sânzienelor" },
-      { src: "/images/jurnal/sanziene-3.png", alt: "Participante la Sânziene în fața unei case tradiționale" },
+      { src: "/images/jurnal/sanziene-2026-1.jpeg", alt: "Participantele la sărbătoarea Sânzienelor, reunite în grădina Complexului Turistic Costești" },
+      { src: "/images/jurnal/sanziene-2026-2.jpeg", alt: "Membră a comunității Ciocârlia purtând o coroniță din flori de Sânziene" },
+      { src: "/images/jurnal/sanziene-2026-3.jpeg", alt: "Femei și fete împletind coronițe din flori la sărbătoarea Sânzienelor" },
+      { src: "/images/jurnal/sanziene-2026-4.jpeg", alt: "Participante în cămăși tradiționale pregătind coronițe din flori" },
+      { src: "/images/jurnal/sanziene-2026-5.jpeg", alt: "Comunitatea adunată pe covoare tradiționale pentru atelierul de coronițe" },
     ],
     sources: [{ label: "Postarea despre Sânziene", href: "https://www.facebook.com/share/p/1A4PyuZjDq/" }],
   },
@@ -101,25 +106,44 @@ export const journalEntries: JournalEntry[] = [
     place: "Chișinău",
     excerpt: "Costumul creat în comunitate și albumul «Rapsodia patrimoniului» au ajuns la Muzeul Național de Etnografie și Istorie Naturală.",
     paragraphs: [
-      "În ultimul weekend din iunie, Șezătoarea Ciocârlia a sărbătorit Ziua Portului Popular la Muzeul Național de Etnografie și Istorie Naturală, alături de alte comunități.",
-      "Am prezentat costumul tradițional creat în comunitate și am lansat albumul «Rapsodia patrimoniului. 5 ani de renaștere a cămășii tradiționale. Șezătoarea Ciocârlia».",
+      "Ultimul weekend din iunie este dedicat Zilei Portului Popular, iar anul acesta Șezătoarea Ciocârlia a avut bucuria de a sărbători această zi alături de alte comunități la Muzeul Național de Etnografie și Istorie Naturală, la invitația echipei muzeului.",
+      "În cadrul evenimentului am prezentat costumul tradițional creat în comunitatea Ciocârlia, printr-o defilare plină de emoție, și am lansat albumul «Rapsodia patrimoniului. 5 ani de renaștere a cămășii tradiționale. Șezătoarea Ciocârlia», împărtășind cu publicul povestea comunității noastre.",
+      "Mulțumim administrației muzeului pentru invitație și ospitalitate, tuturor celor care au fost alături de noi și domnului primar al satului Costești, Grigore Țurcan, pentru prezență și susținerea comunității.",
+      "Ne-am bucurat de o zi frumoasă, de oameni minunați și de încă o sărbătoare dedicată patrimoniului nostru viu. La cât mai multe cămăși cusute cu drag și purtate cu mândrie!",
+      "Foto: Aleksandr Wegera, Muzeul Național de Etnografie și Istorie Naturală.",
     ],
     photos: [
-      { src: "/images/jurnal/port-popular-1.jpg", alt: "Participante în port tradițional la Ziua Portului Popular" },
-      { src: "/images/jurnal/port-popular-3.jpg", alt: "Detaliu al costumelor tradiționale prezentate la eveniment" },
-      { src: "/images/jurnal/port-popular-2.jpg", alt: "Diploma primită de Șezătoarea Ciocârlia la Ziua Portului Popular" },
+      { src: "/images/jurnal/ziua-portului-2026-1.jpg", alt: "Participanții la Ziua Portului Popular, în costume tradiționale, în fața Muzeului Național de Etnografie și Istorie Naturală", objectPosition: "center top" },
+      { src: "/images/jurnal/ziua-portului-2026-2.jpg", alt: "Membrele comunității Ciocârlia în port tradițional, cu diploma primită la muzeu", objectPosition: "center top" },
+      { src: "/images/jurnal/ziua-portului-2026-3.jpg", alt: "Membrele comunității Ciocârlia prezentând albumul Rapsodia patrimoniului", objectPosition: "center top" },
+      { src: "/images/jurnal/ziua-portului-2026-4.jpg", alt: "Comunitatea Ciocârlia reunită la evenimentul dedicat Zilei Portului Popular", objectPosition: "center top" },
     ],
     sources: [{ label: "Postarea despre Ziua Portului Popular", href: "https://www.facebook.com/share/p/1KeficYuj9/" }],
   },
   {
     slug: "ziua-universala-a-iei-ialoveni-2026",
-    title: "Ziua Universală a Iei la Ialoveni 2026",
+    title: "Ziua Universală a Iei, sărbătorită în premieră la Ialoveni",
     date: "24 iunie 2026",
     place: "Ialoveni",
-    excerpt: "Ziua Universală a Iei, sărbătorită pentru prima dată la Ialoveni alături de comunitate.",
+    excerpt: "Prima celebrare a Zilei Universale a Iei la Ialoveni a reunit comunitățile creatoare de cămăși tradiționale din raion.",
     paragraphs: [
-      "Pe 24 iunie, Ziua Universală a Iei a fost marcată în Parcul «Sfatul Țării» din Ialoveni. Evenimentul a fost organizat de Casa Raională de Cultură «Andrei Ungureanu» și Șezătoarea Ciocârlia.",
-      "Întâlnirea a reunit iubitori ai patrimoniului, creatori și purtători ai cămășii cu altiță, într-o zi dedicată legăturii dintre oameni și tradiție.",
+      "La 24 iunie, odată cu sărbătoarea de Sânziene, comunități din întreaga lume celebrează Ziua Universală a Iei, dedicată „Artei cămășii cu altiță – element de identitate culturală în România și Republica Moldova”, înscrisă în anul 2022 pe Lista Reprezentativă a Patrimoniului Cultural Imaterial al Umanității UNESCO.",
+      "În acest an, această sărbătoare a fost marcată în premieră în orașul Ialoveni, în Parcul „Sfatul Țării”, printr-un eveniment organizat de Casa Raională de Cultură „Andrei Ungureanu” din Ialoveni și comunitatea Șezătoarea Ciocârlia.",
+      "Programul a reunit iubitori ai patrimoniului, creatori și purtători ai cămășii cu altiță, oferind publicului:",
+      "• expoziție de cămăși tradiționale și costume populare;",
+      "• prezentarea unor publicații dedicate patrimoniului;",
+      "• momente artistice;",
+      "• o amplă defilare de port tradițional.",
+      "La defilarea costumului tradițional au participat:",
+      "• comunitatea Șezătoarea Ciocârlia;",
+      "• Șezătoarea „Suveicuța” din satul Dânceni;",
+      "• Laboratorul Creativ din satul Dânceni;",
+      "• Svetlana Arva și Ana Ursu.",
+      "Momentul artistic a fost susținut de ansamblul „Haiducii”, condus de Gheorghe Matei, și de instrumentiștii Ion Condrea, Maestru în Artă, Igor Popovici și Ion Garbuz, care au oferit publicului un repertoriu inspirat din tradiția muzicală locală, completând atmosfera autentică a sărbătorii.",
+      "Un moment aparte al evenimentului l-a constituit prezentarea volumelor „Înțelepciunea acului” și „Rapsodia patrimoniului. Șezătoarea Ciocârlia și 5 ani de renaștere a cămășii tradiționale”, lucrări dedicate cercetării, documentării și transmiterii meșteșugului cămășii cu altiță.",
+      "Participanții au avut bucuria de a primi și un mesaj de felicitare din partea etnografei Varvara Buzilă, doctor în filologie, conferențiar universitar și una dintre cele mai importante personalități ale patrimoniului cultural din Republica Moldova. În mesajul său, aceasta a evidențiat rolul esențial al comunităților locale în păstrarea și transmiterea artei cămășii cu altiță, apreciind implicarea celor care duc mai departe acest patrimoniu viu.",
+      "Evenimentul s-a bucurat și de susținerea autorităților publice, prin mesajele adresate de Natalia Eremia, președinta raionului Ialoveni, Sergiu Armașu, primarul orașului Ialoveni, și Diana Josu-Braniște, șefa Secției Cultură Ialoveni, care au apreciat implicarea comunităților în protejarea și valorificarea patrimoniului cultural.",
+      "Evenimentul a marcat un moment de referință pentru viața culturală a raionului Ialoveni, devenind prima inițiativă care a adus împreună toate comunitățile creatoare de cămăși tradiționale din raion, într-o celebrare comună a patrimoniului înscris în Lista Reprezentativă a Patrimoniului Cultural Imaterial al Umanității UNESCO. Prin această premieră, Ialoveni afirmă rolul comunităților locale în protejarea și transmiterea artei cămășii cu altiță către generațiile viitoare, demonstrând că patrimoniul trăiește prin oamenii care îl creează, îl poartă și îl împărtășesc mai departe.",
     ],
     photos: [
       { src: "/images/jurnal/ia-ialoveni-2.jpg", alt: "Membrele comunității Ciocârlia în port tradițional la Ziua Iei din Ialoveni" },
@@ -134,13 +158,13 @@ export const journalEntries: JournalEntry[] = [
     date: "2026",
     excerpt: "Femei de generații diferite se întâlnesc în jurul cămășii cu altiță și duc mai departe bucuria de a coase.",
     paragraphs: [
-      "De-a lungul anilor, Șezătoarea Ciocârlia a adus împreună femei care au dorit să coasă și să poarte cămașa cu altiță ca parte a propriei identități.",
-      "În comunitate se întâlnesc fete de 10 ani și doamne de peste 70 de ani. Unele membre au devenit mentori, altele au împărtășit cusutul cu fiicele, copiii și nepoții lor.",
+      "De-a lungul anilor, Șezătoarea Ciocârlia a reușit să unească femei care și-au dorit să poarte cămașa cu altiță nu doar ca piesă vestimentară, ci ca parte a propriei identități. Unele au venit, au cusut o cămașă și au mers mai departe pe drumul vieții lor. Altele au rămas aproape și continuă să coasă neîntrerupt. Cineva a devenit mentor, cineva și-a învățat fiica să țină acul în mână, iar altcineva a cusut cămăși pentru copii, nepoți și chiar strănepoți.",
+      "În această comunitate se întâlnesc fete de 10 ani și doamne de peste 70 de ani. Între generații s-a creat o legătură socială extraordinară, construită în jurul acestei haine cu valoare sacră – cămașa ancestrală. Aici, cusutul nu înseamnă doar tehnică sau ornament, ci timp împărtășit, memorie transmisă și apartenență la o continuitate vie.",
     ],
     photos: [
-      { src: "/images/jurnal/sezatoare-oameni-camasi-3.jpg", alt: "O femeie o învață pe o fetiță să coasă, ambele în port tradițional" },
-      { src: "/images/jurnal/sezatoare-oameni-camasi-1.jpg", alt: "Membri ai comunității îmbrăcați în cămăși tradiționale" },
-      { src: "/images/jurnal/sezatoare-oameni-camasi-2.jpg", alt: "Detaliu al mâinilor și broderiei unei cămăși tradiționale" },
+      { src: "/images/jurnal/sezatoare-oameni-camasi-2026-1.jpg", alt: "O femeie și o fetiță lucrează împreună la gherghef în fața unei case cu ferestre albastre" },
+      { src: "/images/jurnal/sezatoare-oameni-camasi-2026-2.jpg", alt: "Un cuplu poartă cămăși tradiționale cu broderie în nuanțe de galben și negru", objectPosition: "center top" },
+      { src: "/images/jurnal/sezatoare-oameni-camasi-2026-3.jpg", alt: "O femeie în cămașă cu altiță admiră o țesătură cu motive tradiționale în grădină", objectPosition: "center 30%" },
     ],
     sources: [{ label: "Povestea comunității pe Facebook", href: "https://www.facebook.com/share/p/19nQz1sgzu/" }],
   },

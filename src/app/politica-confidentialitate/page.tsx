@@ -15,20 +15,20 @@ export default function Privacy() {
   return <main>
     <PageIntro label="Politica de confidențialitate" title="Politica de confidențialitate" intro="Respectăm viața privată a celor care ne scriu și a oamenilor din comunitatea Șezătoarea Ciocârlia. Aici explicăm ce date ajung la noi prin site și cum le folosim." />
     <Container className="max-w-[940px] pb-14 pt-10 md:pb-20">
-    <p className="mb-10 text-sm text-[var(--muted)] md:mb-14">Ultima actualizare: 1 noiembrie 2026</p>
+    <p className="mb-10 text-sm text-[var(--muted)] md:mb-14">Ultima actualizare: 2 noiembrie 2026</p>
 
     <div className="space-y-9 md:space-y-11">
       <section className={sectionClass} aria-labelledby="responsabil">
         <h2 id="responsabil" className={headingClass}>Cine răspunde de date</h2>
         <div className={textClass}>
-          <p>Diana Roșca, persoană fizică, gestionează datele primite prin formularele de contact și de pe pagina Atelier de cusut pentru activitatea comunității Șezătoarea Ciocârlia. Pentru întrebări despre această politică sau despre datele tale, scrie la <a className="font-semibold text-[var(--forest)] underline underline-offset-4" href="mailto:dianaroscach@gmail.com">dianaroscach@gmail.com</a>.</p>
+          <p>Diana Roșca, persoană fizică, gestionează datele primite prin formularele de contact, de comandă a cărților și de pe pagina Atelier de cusut pentru activitatea comunității Șezătoarea Ciocârlia. Pentru întrebări despre această politică sau despre datele tale, scrie la <a className="font-semibold text-[var(--forest)] underline underline-offset-4" href="mailto:dianaroscach@gmail.com">dianaroscach@gmail.com</a>.</p>
         </div>
       </section>
 
       <section className={sectionClass} aria-labelledby="date-colectate">
         <h2 id="date-colectate" className={headingClass}>Ce date primim</h2>
         <div className={textClass}>
-          <p>Când folosești formularul de contact, primim numele, adresa de email și mesajul tău. Formularele de pe pagina Atelier de cusut trimit și numărul de telefon, activitatea aleasă și detaliile completate de tine, precum numărul de participanți, data și locația dorită sau subiectul consultației, după caz. Dacă ne scrii direct pe email, primim datele pe care alegi să le incluzi în corespondență. Te rugăm să nu trimiți informații sensibile care nu sunt necesare pentru solicitarea ta.</p>
+          <p>Când folosești formularul de contact, primim numele, adresa de email și mesajul tău. Formularele de pe pagina Atelier de cusut trimit și numărul de telefon, activitatea aleasă și detaliile completate de tine, precum numărul de participanți, data și locația dorită sau subiectul consultației, după caz. Formularul de comandă a cărților trimite titlul cărții, numărul de exemplare, telefonul, localitatea și eventualele detalii suplimentare. Dacă ne scrii direct pe email, primim datele pe care alegi să le incluzi în corespondență. Te rugăm să nu trimiți informații sensibile care nu sunt necesare pentru solicitarea ta.</p>
           <p>Trimiterea unui formular de atelier sau șezătoare reprezintă o solicitare; locul și programarea se confirmă ulterior prin contact. Formularele demonstrative din alte secțiuni, inclusiv cel pentru newsletter, nu înregistrează și nu trimit în prezent datele introduse.</p>
           <p>Furnizorul de găzduire poate prelucra date tehnice ale vizitei, cum ar fi adresa IP, tipul browserului, ora cererii și pagina accesată, pentru funcționarea și securitatea site-ului.</p>
         </div>

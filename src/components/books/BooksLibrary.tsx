@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useRef, useState } from "react";
-import { Button } from "@/components/ui/Button";
+import { BookOrderDrawer } from "@/components/books/BookOrderDrawer";
 import { bookDescriptions } from "@/data/bookDescriptions";
 import type { Book } from "@/types/book";
 
@@ -93,7 +93,7 @@ function BookPreview({ book }: { book: Book }) {
         {book.description}{" "}
         <button ref={triggerRef} type="button" aria-haspopup="dialog" aria-controls={`book-details-${book.id}`} onClick={openDescription} className="text-action focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--cta)]">Citește mai mult</button>
       </p>
-      <div className="mt-6"><Button href="/contact" variant="secondary">Comandă cartea</Button></div>
+      <div className="mt-6"><BookOrderDrawer book={book} /></div>
     </div>
     </div>
     <dialog ref={dialogRef} id={`book-details-${book.id}`} aria-labelledby={`book-details-title-${book.id}`} onClose={closeDescription} onClick={(event) => { if (event.target === event.currentTarget) event.currentTarget.close(); }} className="fixed inset-y-0 right-0 left-auto m-0 ml-auto h-dvh max-h-dvh w-full max-w-[680px] overflow-hidden border-0 bg-[var(--paper)] p-0 text-[var(--ink)] shadow-2xl backdrop:bg-black/50">

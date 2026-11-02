@@ -4,8 +4,8 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 import type { JournalEntry } from "@/data/journal";
 
-export function JournalShowcase({ entries, archiveEntries }: { entries: JournalEntry[]; archiveEntries: JournalEntry[] }) {
-  const [selectedSlug, setSelectedSlug] = useState(entries[0].slug);
+export function JournalShowcase({ entries, archiveEntries, initialSlug }: { entries: JournalEntry[]; archiveEntries: JournalEntry[]; initialSlug: string }) {
+  const [selectedSlug, setSelectedSlug] = useState(initialSlug);
   const articleRef = useRef<HTMLElement>(null);
   const selected = [...entries, ...archiveEntries].find(entry => entry.slug === selectedSlug) ?? entries[0];
 
@@ -37,7 +37,7 @@ export function JournalShowcase({ entries, archiveEntries }: { entries: JournalE
             <div className="mt-6 grid gap-5 sm:grid-cols-2">
               {selected.photos.slice(1).map(photo => <figure key={photo.src}>
                 <div className="relative aspect-[4/3] overflow-hidden bg-[var(--cream)]">
-                  <Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 640px) 100vw, 32vw" className="object-cover" />
+                  <Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 640px) 100vw, 32vw" className="object-cover" style={{ objectPosition: photo.objectPosition ?? "center" }} />
                 </div>
                 <figcaption className="mt-2 text-xs leading-5 text-[var(--muted)]">{photo.alt}</figcaption>
               </figure>)}
@@ -74,16 +74,16 @@ export function JournalShowcase({ entries, archiveEntries }: { entries: JournalE
     <section className="mt-14 border-t border-[var(--line)] pt-10 sm:mt-20">
       <p className="eyebrow">Mai departe</p>
       <h2 className="mt-3 text-3xl sm:text-4xl">Din arhivă</h2>
-      <div className="mt-8 grid gap-8 md:grid-cols-2">
+      <div className="mt-8 grid items-stretch gap-8 md:auto-rows-fr md:grid-cols-2">
         {archiveEntries.map(entry => <button
           key={entry.slug}
           type="button"
           onClick={() => selectEntry(entry.slug, true)}
-          className={`group w-full overflow-hidden border bg-white text-left transition-colors hover:border-[var(--forest)] focus-visible:border-[var(--forest)] ${selected.slug === entry.slug ? "border-[var(--forest)]" : "border-[var(--line)]"}`}
+          className={`group h-full w-full overflow-hidden border bg-white text-left transition-colors hover:border-[var(--forest)] focus-visible:border-[var(--forest)] ${selected.slug === entry.slug ? "border-[var(--forest)]" : "border-[var(--line)]"}`}
           aria-label={`Afișează ${entry.title}`}
           aria-pressed={selected.slug === entry.slug}
         >
-          <span className="relative block aspect-[16/10] overflow-hidden bg-[var(--cream)]">
+          <span className="relative block aspect-[16/10] w-full overflow-hidden bg-[var(--cream)]">
             <Image src={entry.photos[0].src} alt="" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-500 group-hover:scale-[1.025]" />
           </span>
           <span className="block p-6 sm:p-7">
