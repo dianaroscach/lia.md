@@ -6,10 +6,10 @@
 .button--primary:hover,.button--primary:focus-visible{border-color:var(--cta-dark);background:var(--cta-dark)}
 .button--secondary{border-color:var(--cta);background:#fff;color:var(--cta)}
 .button--secondary:hover,.button--secondary:focus-visible{background:var(--cta);color:#fff}
-.button--tertiary{border-color:transparent;background:transparent;color:var(--cta);padding-inline:0}
-.button--tertiary:hover,.button--tertiary:focus-visible{color:var(--cta-dark);text-decoration:underline;text-underline-offset:4px}
-.text-action{font-size:11px;font-weight:600;letter-spacing:.1em;line-height:1.4;text-transform:uppercase;color:var(--cta);text-decoration:underline;text-decoration-color:transparent;text-underline-offset:4px;transition:color .2s,text-decoration-color .2s}
-.text-action:hover,.text-action:focus-visible{color:var(--cta-dark);text-decoration-color:currentColor}
+.button--tertiary,.text-action{display:inline-flex;align-items:center;gap:.75rem;font-family:var(--font-body),Arial,sans-serif;font-size:12px;font-weight:600;letter-spacing:.1em;line-height:1.4;text-transform:uppercase;color:var(--cta);text-decoration:underline;text-decoration-color:transparent;text-underline-offset:4px;transition:color .2s,text-decoration-color .2s}
+.button--tertiary{min-height:0;justify-content:flex-start;border:0;border-radius:0;background:transparent;padding:0;text-align:left}
+.button--tertiary:hover,.button--tertiary:focus-visible,.text-action:hover,.text-action:focus-visible,.group:hover .text-action,.group:focus-visible .text-action{color:var(--cta-dark);text-decoration-color:currentColor}
+.text-action--inverse,.text-action--inverse:hover,.text-action--inverse:focus-visible{color:#fff}
 .button--inverse{border-color:#fff;background:transparent;color:#fff}
 .button--inverse:hover,.button--inverse:focus-visible{background:#fff;color:var(--cta)}
 .eyebrow{font-size:12px;font-weight:600;letter-spacing:.2em;line-height:1.4;text-transform:uppercase;color:var(--wine)}

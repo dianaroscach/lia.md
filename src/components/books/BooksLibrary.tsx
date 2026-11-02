@@ -91,7 +91,7 @@ function BookPreview({ book }: { book: Book }) {
       <p className="mt-2 text-sm font-semibold text-[var(--ink)]">{authorLabel}: {book.authors.join(" și ")}</p>
       <p className="mt-5 max-w-none text-base leading-7 text-[var(--muted)]">
         {book.description}{" "}
-        <button ref={triggerRef} type="button" aria-haspopup="dialog" aria-controls={`book-details-${book.id}`} onClick={openDescription} className="text-action focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--cta)]">Citește mai mult</button>
+        <button ref={triggerRef} type="button" aria-haspopup="dialog" aria-controls={`book-details-${book.id}`} onClick={openDescription} className="text-action focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--cta)]">Citește mai mult <span aria-hidden="true">→</span></button>
       </p>
       <div className="mt-6"><BookOrderDrawer book={book} /></div>
     </div>

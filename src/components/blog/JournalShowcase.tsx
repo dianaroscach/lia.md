@@ -90,7 +90,7 @@ export function JournalShowcase({ entries, archiveEntries, initialSlug }: { entr
             <span className="eyebrow block">{entry.date}{entry.place ? ` · ${entry.place}` : ""}</span>
             <span className="mt-4 block font-serif text-3xl leading-tight transition-colors group-hover:text-[var(--forest)]">{entry.title}</span>
             <span className="mt-4 block text-base leading-7 text-[var(--muted)]">{entry.excerpt}</span>
-            <span className="text-action mt-6 block">Deschide povestea <span aria-hidden="true">↑</span></span>
+            <span className="text-action mt-6">Descoperă <span aria-hidden="true">→</span></span>
           </span>
         </button>)}
       </div>
