@@ -97,7 +97,7 @@ export function BookOrderDrawer({ book }: { book: Book }) {
           </div>
           <button type="button" aria-label="Închide formularul de comandă" onClick={close} disabled={pending} className="grid size-10 shrink-0 place-items-center rounded-full border border-[var(--line-strong)] text-2xl leading-none text-[var(--forest)] hover:bg-[var(--mist)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--wine)]">×</button>
         </div>
-        <p className="mt-4 leading-7 text-[var(--muted)]">Trimite-i Dianei detaliile comenzii. Ea îți va confirma disponibilitatea, prețul și livrarea prin contact direct.</p>
+        <p className="mt-4 leading-7 text-[var(--muted)]">Completează detaliile de mai jos pentru a trimite solicitarea de comandă.</p>
       </div>
       <div className="px-6 py-7 sm:px-10 sm:py-9">
         {sent ? <div role="status" className="space-y-5">

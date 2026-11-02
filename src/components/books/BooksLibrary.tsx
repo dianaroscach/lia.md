@@ -60,10 +60,10 @@ function BookPreview({ book }: { book: Book }) {
   const imageOnRight = book.id === "b1";
   const authorLabel = book.authors.length === 1 ? "Autor" : "Autori";
 
-  return <article className={imageOnRight ? "relative isolate px-5 py-12 sm:px-7 sm:py-14 lg:px-9 lg:py-16" : ""}>
+  return <article className={imageOnRight ? "book-preview relative isolate px-5 py-12 sm:px-7 sm:py-14 lg:px-9 lg:py-16" : "book-preview"}>
     {imageOnRight && <div aria-hidden="true" className="absolute inset-y-0 left-1/2 -z-10 w-screen -translate-x-1/2 bg-[var(--mist)]" />}
     <div className={`grid lg:items-center lg:gap-15 ${imageOnRight ? "lg:grid-cols-[minmax(0,1fr)_420px]" : "lg:grid-cols-[420px_minmax(0,1fr)]"}`}>
-      <div className={imageOnRight ? "lg:order-2" : "p-5 sm:p-7 lg:py-8 lg:pl-0 lg:pr-0"}>
+      <div className={`book-preview-media ${imageOnRight ? "lg:order-2" : "p-5 sm:p-7 lg:py-8 lg:pl-0 lg:pr-0"}`}>
       <div className="max-w-[420px]">
       <div className="relative h-[400px] overflow-hidden bg-[var(--sand)]">
         <Image key={slide.src + activeSlide} src={slide.src} alt={slide.alt} fill sizes="(max-width: 1024px) calc(100vw - 64px), 50vw" className="object-cover transition-opacity duration-300" style={{ objectPosition: slide.position ?? "center" }} priority={book.id === "b2" && activeSlide === 0} />
@@ -84,7 +84,7 @@ function BookPreview({ book }: { book: Book }) {
     </div>
     </div>
 
-    <div className={`flex flex-col justify-center ${imageOnRight ? "pt-6 sm:pt-8 lg:order-1 lg:py-0" : "p-6 sm:p-8 lg:py-8 lg:pl-0 lg:pr-0"}`}>
+    <div className={`book-preview-copy flex flex-col justify-center ${imageOnRight ? "pt-6 sm:pt-8 lg:order-1 lg:py-0" : "p-6 sm:p-8 lg:py-8 lg:pl-0 lg:pr-0"}`}>
       <p className="eyebrow">{book.id === "b2" ? "Ghid practic" : "Album-document"}</p>
       <h2 className="mt-4 text-4xl leading-[1.05] md:text-5xl">{book.title}</h2>
       <p className="mt-3 font-serif text-xl leading-7 text-[var(--ink)]">{book.subtitle}</p>
