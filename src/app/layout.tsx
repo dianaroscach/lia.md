@@ -4,7 +4,7 @@ const playfair=Playfair_Display({subsets:["latin","latin-ext"],variable:"--font-
 const sharingTitle = "Ciocârlia — Tradiție. Oameni. Creație.";
 const sharingDescription = "Descoperă atelierele de cusut, poveștile și comunitatea care păstrează vie tradiția cămășii românești.";
 const sharingImage = {
-  url: "/og-image.jpg",
+  url: "https://www.lia.md/og-image.jpg?v=2",
   width: 1200,
   height: 630,
   alt: "Comunitatea Ciocârlia — femei și copii în port tradițional",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     siteName: "Ciocârlia",
     type: "website",
     locale: "ro_RO",
-    images: [{ ...sharingImage, type: "image/jpeg" }],
+    images: [{ ...sharingImage, secureUrl: sharingImage.url, type: "image/jpeg" }],
   },
   twitter: {
     card: "summary_large_image",
