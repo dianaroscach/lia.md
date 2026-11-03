@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="19 -38 416 416">
+  <title>Ciocârlia</title>
+  <rect x="19" y="-38" width="416" height="416" rx="64" fill="#faf7f0"/>
+  <path fill="#49491b" d="M42 228 159 111l68 67 68-67 117 117-106-28-64 64 11 11-15 14-11-11-11 11-15-14 11-11-64-64z"/>
+  <path fill="#aa100e" fill-rule="evenodd" d="m227 43 57 57-57 57-57-57zm0 14-43 43 43 43 43-43z"/>
+  <path fill="#49491b" d="m227 72 28 28-28 27-28-27z"/>
+</svg>
