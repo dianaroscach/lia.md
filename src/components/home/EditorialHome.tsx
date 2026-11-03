@@ -4,8 +4,8 @@ import {Container} from "@/components/layout/Container";
 import {Button} from "@/components/ui/Button";
 
 const workshops=[
-  {title:"Șezători pentru comunitate",eyebrow:"Învățăm împreună",image:"/images/workshops/sezatoare-comunitate.png",href:"/atelier-de-cusut#ialoveni"},
-  {title:"Atelier pentru adulți",eyebrow:"Grupuri de până la 20 persoane",image:"/images/workshops/atelier-adulti.png",href:"/atelier-de-cusut#atelier-privat"},
+  {title:"Șezători pentru comunitate",eyebrow:"Învățăm împreună",image:"/images/workshops/sezatoare-comunitate.webp",href:"/atelier-de-cusut#ialoveni"},
+  {title:"Atelier pentru adulți",eyebrow:"Grupuri de până la 20 persoane",image:"/images/workshops/atelier-adulti.webp",href:"/atelier-de-cusut#atelier-privat"},
 ];
 
 export function EditorialHome(){return <>
